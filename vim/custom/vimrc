@@ -1,0 +1,57 @@
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set nowrap
+set autoindent
+let mapleader = ","
+let NERDTreeShowHidden=1
+
+"General key remaps
+map <S-Tab> <C-W>
+noremap <D-PageDown> :tabnext<CR>
+noremap <D-PageUp> :tabprev<CR>
+
+"CtrlP
+let g:ctrlp_working_path_mode=2
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|build|sass-cache)$',
+  \ 'file': '\v\.(exe|so|dll|css)$',
+  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+  \ }
+" nmap <D-t> :CtrlP<cr>
+" imap <D-t> <esc>:CtrlP<cr>
+
+
+"Spellcheck
+nmap <silent> <leader>s :set spell!<CR>
+set spelllang=en_us
+set lsp=1
+
+"Surround
+let g:surround_{char2nr("d")} = "<div\1id: \r..*\r id=\"&\"\1>\r</div>""
+let g:surround_{char2nr("s")} = "<span\1class: \r..*\r class=\"&\"\1>\r</span>""
+
+"Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<D-.>"
+
+"Syntastic
+" let g:syntastic_enable_signs=0
+highlight SyntasticErrorLine guifg=white guibg=red
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['javascript', 'python', 'php', 'json', 'sass'],
+                           \ 'passive_filetypes': [''] }
+
+"Whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+autocmd BufWritePre     *.* :call TrimWhiteSpace()
