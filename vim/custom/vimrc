@@ -6,11 +6,15 @@ set nowrap
 set autoindent
 let mapleader = ","
 let NERDTreeShowHidden=1
+set guifont=Meslo\ LG\ S\ for\ Powerline:h11
 
 "General key remaps
 map <S-Tab> <C-W>
 noremap <D-PageDown> :tabnext<CR>
 noremap <D-PageUp> :tabprev<CR>
+
+let g:airline_powerline_fonts=1
+let g:airline#extensions#whitespace#enabled = 1
 
 "CtrlP
 let g:ctrlp_working_path_mode=2

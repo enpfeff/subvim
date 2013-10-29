@@ -56,7 +56,7 @@ highlight SignColumn guibg=#272822
 
 if has("gui_macvim")
   " No toolbars, menu or scrollbars in the GUI
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h12 "TODO: include these fonts by default
+  " set guifont=Source\ Code\ Pro\ for\ Powerline:h12 "TODO: include these fonts by default
   set clipboard+=unnamed
   set vb t_vb=
   set guioptions-=m  "no menu
@@ -179,8 +179,6 @@ let g:ctrlp_buftag_types = {
 \ 'objc'       : '--language-force=objc --objc-types=mpci',
 \ 'rc'         : '--language-force=rust --rust-types=fTm'
 \ }
-
-let g:Powerline_symbols = 'fancy'
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 1
