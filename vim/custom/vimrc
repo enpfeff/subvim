@@ -1,3 +1,4 @@
+set macmeta
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -8,6 +9,10 @@ let mapleader = ","
 let NERDTreeShowHidden=1
 set guifont=Meslo\ LG\ S\ for\ Powerline:h11
 
+"Yankstack
+nmap <M-p> <Plug>yankstack_substitute_older_paste
+" nmap <D-P> <Plug>yankstack_substitute_newer_paste
+
 "General key remaps
 map <S-Tab> <C-W>
 noremap <D-PageDown> :tabnext<CR>
@@ -16,6 +21,20 @@ map <S-D-Right> vg_
 map! <S-D-Right> <esc>vg_
 map <S-D-Left> v^
 map! <S-D-Left> <esc>v^
+"Clear search once I'm done
+nnoremap <esc><esc> :noh<cr>
+
+"Take off the training wheels
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
 
 "Autoload on vimrc edits
 augroup myvimrc
