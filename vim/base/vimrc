@@ -52,7 +52,9 @@ set switchbuf=usetab,newtab     " open new buffers always in new tabs
 let macvim_skip_colorscheme=1
 let g:molokai_original=1
 colorscheme molokai
-highlight SignColumn guibg=#272822   
+highlight SignColumn guibg=#272822
+highlight SyntasticErrorLine guifg=white guibg=#6e3232
+highlight ExtraWhitespace ctermbg=red guibg=#CCCCCC
 
 if has("gui_macvim")
   " No toolbars, menu or scrollbars in the GUI
@@ -94,7 +96,7 @@ if has("gui_macvim")
   "Open sidebar with cmd+k
   map <D-k> :NERDTreeTabsToggle<CR>
 
-  " This mapping makes Ctrl-Tab switch between tabs. 
+  " This mapping makes Ctrl-Tab switch between tabs.
   " Ctrl-Shift-Tab goes the other way.
   noremap <C-Tab> :tabnext<CR>
   noremap <C-S-Tab> :tabprev<CR>
@@ -169,7 +171,7 @@ com! MyCtrlPTag call MyCtrlPTag()
 
 " TODO: add javascript and some other languages who doesn't have ctags support
 " coffee: https://gist.github.com/michaelglass/5210282
-" go: http://stackoverflow.com/a/8236826/462233 
+" go: http://stackoverflow.com/a/8236826/462233
 " objc:  http://www.gregsexton.org/2011/04/objective-c-exuberant-ctags-regex/
 " rust: https://github.com/mozilla/rust/blob/master/src/etc/ctags.rust
 let g:ctrlp_buftag_types = {

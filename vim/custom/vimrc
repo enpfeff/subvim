@@ -12,6 +12,8 @@ set guifont=Meslo\ LG\ S\ for\ Powerline:h11
 map <S-Tab> <C-W>
 noremap <D-PageDown> :tabnext<CR>
 noremap <D-PageUp> :tabprev<CR>
+vmap <S-D-Right> E
+vmap <S-D-Left> B
 
 let g:airline_powerline_fonts=1
 let g:airline#extensions#whitespace#enabled = 1
@@ -30,7 +32,7 @@ let g:ctrlp_custom_ignore = {
 "Spellcheck
 nmap <silent> <leader>s :set spell!<CR>
 set spelllang=en_us
-set lsp=1
+set lsp=0
 
 "Surround
 let g:surround_{char2nr("d")} = "<div\1id: \r..*\r id=\"&\"\1>\r</div>""
@@ -42,14 +44,15 @@ let g:UltiSnipsListSnippets="<D-.>"
 
 "Syntastic
 " let g:syntastic_enable_signs=0
-highlight SyntasticErrorLine guifg=white guibg=red
+" highlight SyntasticErrorLine guifg=white guibg=#6e3232
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['javascript', 'python', 'php', 'json', 'sass'],
-                           \ 'passive_filetypes': [''] }
+                           \ 'passive_filetypes': ['html'] }
 
 "Whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
+highlight ExtraWhitespace ctermbg=black guibg=#181818
+
+"match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
@@ -59,3 +62,6 @@ function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
 autocmd BufWritePre     *.* :call TrimWhiteSpace()
+
+autocmd BufEnter *html :setfiletype djangohtml<CR>
+"autocmd FileType html set ft=htmldjango
