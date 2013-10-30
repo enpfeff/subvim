@@ -12,9 +12,18 @@ set guifont=Meslo\ LG\ S\ for\ Powerline:h11
 map <S-Tab> <C-W>
 noremap <D-PageDown> :tabnext<CR>
 noremap <D-PageUp> :tabprev<CR>
-vmap <S-D-Right> E
-vmap <S-D-Left> B
+map <S-D-Right> vg_
+map! <S-D-Right> <esc>vg_
+map <S-D-Left> v^
+map! <S-D-Left> <esc>v^
 
+"Autoload on vimrc edits
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
+"Aireline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#whitespace#enabled = 1
 
