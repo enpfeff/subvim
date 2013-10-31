@@ -9,6 +9,9 @@ let mapleader = ","
 let NERDTreeShowHidden=1
 set guifont=Meslo\ LG\ S\ for\ Powerline:h11
 
+"Ignore these files
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/build/*,*.css,*/node-modules/*,*/bower_components/*
+
 "Yankstack
 nmap <M-p> <Plug>yankstack_substitute_older_paste
 " nmap <D-P> <Plug>yankstack_substitute_newer_paste
@@ -48,11 +51,6 @@ let g:airline#extensions#whitespace#enabled = 1
 
 "CtrlP
 let g:ctrlp_working_path_mode=2
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|build|sass-cache)$',
-  \ 'file': '\v\.(exe|so|dll|css)$',
-  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-  \ }
 " nmap <D-t> :CtrlP<cr>
 " imap <D-t> <esc>:CtrlP<cr>
 
