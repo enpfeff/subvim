@@ -89,5 +89,5 @@ function! TrimWhiteSpace()
 endfunction
 autocmd BufWritePre     *.* :call TrimWhiteSpace()
 
-autocmd BufEnter *html :setfiletype djangohtml<CR>
 "autocmd FileType html set ft=htmldjango
+au BufNewFile,BufRead *.html setlocal ft=htmldjango

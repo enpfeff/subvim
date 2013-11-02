@@ -1,6 +1,7 @@
 " .vimrc
 set nocompatible                "Turn off compability mode with Vi, we don't need that anymore
 filetype off " required
+set shell=/bin/bash
 
 execute pathogen#infect('base/{}')
 if isdirectory(expand("$HOME/.vim/custom/"))
