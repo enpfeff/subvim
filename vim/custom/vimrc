@@ -10,7 +10,7 @@ let NERDTreeShowHidden=1
 set guifont=Meslo\ LG\ S\ for\ Powerline:h11
 
 "Ignore these files
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/build/*,*.css,*/node-modules/*,*/bower_components/*
+set wildignore+=*/.git/*,*/tmp/*,*/.hg/*,*/.svn/*,*/build/*,*/vendor/*,*/dist/*,*.css,*/node-modules/*,*/bower_components/*
 
 "Yankstack
 nmap <M-p> <Plug>yankstack_substitute_older_paste
@@ -26,6 +26,9 @@ map <S-D-Left> v^
 map! <S-D-Left> <esc>v^
 "Clear search once I'm done
 nnoremap <esc><esc> :noh<cr>
+"Enter and shift enter create new lines
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
 
 "Take off the training wheels
 nnoremap <up> <nop>
@@ -77,6 +80,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 "Whitespace
 highlight ExtraWhitespace ctermbg=black guibg=#181818
+
+"Nerdtree
+"highlight link NERDTreeExecFile ModeMsg
 
 "match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
