@@ -10,7 +10,7 @@ let NERDTreeShowHidden=1
 set guifont=Meslo\ LG\ S\ for\ Powerline:h11
 
 "Ignore these files
-set wildignore+=*/.git/*,*/tmp/*,*/.hg/*,*/.svn/*,*/build/*,*/vendor/*,*/dist/*,*.css,*/node-modules/*,*/bower_components/*
+set wildignore+=*/.git/*,*/tmp/*,*/.hg/*,*/.svn/*,*/build/*,*/vendor/*,*/dist/*,*.css,*/node-modules/*,*/node_modules/*,*/bower_components/*,*/.sass-cache/*
 
 "Yankstack
 nmap <M-p> <Plug>yankstack_substitute_older_paste
@@ -83,6 +83,12 @@ highlight ExtraWhitespace ctermbg=black guibg=#181818
 
 "Nerdtree
 "highlight link NERDTreeExecFile ModeMsg
+
+"Easygrep
+let g:EasyGrepCommand=1
+let g:EasyGrepRecursive=1
+let g:EasyGrepFilesToExclude=".git,tmp,.hg,.svn,build,vendor,dist,*.css,node-modules,node_modules,bower_components,.sass-cache"
+let g:EasyGrepEveryMatch=1
 
 "match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
