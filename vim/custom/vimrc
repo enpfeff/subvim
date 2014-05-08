@@ -10,7 +10,7 @@ let NERDTreeShowHidden=1
 set guifont=Meslo\ LG\ S\ for\ Powerline:h11
 
 "Ignore these files
-set wildignore+=*/.git/*,*/tmp/*,*/.hg/*,*/.svn/*,*/build/*,*/vendor/*,*/dist/*,*.css,*/node-modules/*,*/node_modules/*,*/bower_components/*,*/.sass-cache/*
+set wildignore+=*/.git/*,*/tmp/*,*/.hg/*,*/.svn/*,*/build/*,*/vendor/*,*/dist/*,*.css,*/node-modules/*,*/node_modules/*,*/bower_components/*,*/.sass-cache/*,*/.grunt/*
 
 "Yankstack
 nmap <M-p> <Plug>yankstack_substitute_older_paste
@@ -29,6 +29,9 @@ nnoremap <esc><esc> :noh<cr>
 "Enter and shift enter create new lines
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+map <S-D-,> :hi Normal guibg=#052933<CR>
+map <S-D-.> :hi Normal guibg=#2f2f2f<CR>
+map <S-D-/> :hi Normal guibg=#241e29<CR>
 
 "Take off the training wheels
 nnoremap <up> <nop>
@@ -87,7 +90,7 @@ highlight ExtraWhitespace ctermbg=black guibg=#181818
 "Easygrep
 let g:EasyGrepCommand=1
 let g:EasyGrepRecursive=1
-let g:EasyGrepFilesToExclude=".git,tmp,.hg,.svn,build,vendor,dist,*.css,node-modules,node_modules,bower_components,.sass-cache"
+let g:EasyGrepFilesToExclude=".git,tmp,.hg,.svn,build,vendor,dist,*.css,node-modules,node_modules,bower_components,.sass-cache,.grunt"
 let g:EasyGrepEveryMatch=1
 
 "match ExtraWhitespace /\s\+$/
@@ -96,10 +99,28 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+"Remove whitespace on save
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
 autocmd BufWritePre     *.* :call TrimWhiteSpace()
+
+"Use gh flavored markdown by default
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+
+nnoremap <F9> :call Wrap()<cr>
+
+function! Wrap()
+    if (&wrap == 1)
+        set nowrap
+    else
+        set wrap
+    endif
+endfunction
 
 "autocmd FileType html set ft=htmldjango
 au BufNewFile,BufRead *.html setlocal ft=htmldjango
