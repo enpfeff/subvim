@@ -119,31 +119,121 @@ snippet script "XHTML <script>"
 </script>
 endsnippet
 
+# Links
+
 snippet a "Link"
 <a href="${1:http://www.${2:url.com}}">${4:Anchor Text}</a>
 endsnippet
+
+snippet A "Link"
+<a href="${1:http://www.${2:url.com}}">
+  ${4:Anchor Text}
+</a>
+endsnippet
+
+snippet a. "Link"
+<a href="${1:http://www.${2:url.com}}" class="$3">${4:Anchor Text}</a>
+endsnippet
+
+snippet A. "Link"
+<a href="${1:http://www.${2:url.com}}" class="$3">
+  ${4:Anchor Text}
+</a>
+endsnippet
+
+# Spans
+
+snippet s "span"
+<span>${4:Anchor Text}</span>
+endsnippet
+
+snippet S "span"
+<span>
+  ${4:Anchor Text}
+</span>
+endsnippet
+
+snippet s. "span"
+<span class="$0">$1</a>
+endsnippet
+
+snippet S. "span"
+<a class="$0">
+  $1
+</a>
+endsnippet
+
+# Paragraphs
 
 snippet p "paragraph"
 <p>$0</p>
 endsnippet
 
+snippet P "paragraph"
+<p>
+  $0
+</p>
+endsnippet
+
+snippet p. "paragraph"
+<p class="$1">$0</p>
+endsnippet
+
+snippet P. "paragraph"
+<p class="$1">
+  $0
+</p>
+endsnippet
+
+# Divs
+
+snippet d "div"
+<div>$0</div>
+endsnippet
+
+snippet D "div"
+<div>
+  $0
+</div>
+endsnippet
+
+snippet d. "div"
+<div class="$1">$0</div>
+endsnippet
+
+snippet D. "div"
+<div class="$1">
+  $0
+</div>
+endsnippet
+
+# List items
+
 snippet li "list item"
 <li>$0</li>
 endsnippet
 
-snippet lia "list item with link"
-<li><a href="$1">$0</a></li>
+snippet li. "list item with link"
+<li class="$1">$2</li>
 endsnippet
 
-snippet liac "list item with link and class"
-<li class="$2"><a href="$1">$0</a></li>
+snippet li.a "list item with link and class"
+<li class="$1"><a href="$2">$3</a></li>
 endsnippet
 
 snippet ul "unordered list"
 <ul>
-$0
+  $0
 </ul>
 endsnippet
+
+snippet ol "ordered list"
+<ol>
+  $0
+</ol>
+endsnippet
+
+# Tables
 
 snippet td "table cell"
 <td>$0</td>
