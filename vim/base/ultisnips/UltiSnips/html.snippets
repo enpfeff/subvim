@@ -16,15 +16,6 @@ endglobal
 # HTML TAGS #
 #############
 
-snippet tg "Single line tag"
-<${1:span}${2: class="$3"}>$4</${1/(\w+).*/$1/}>
-endsnippet
-
-snippet tgl "Single line tag"
-<${1:span}${2: class="$3"}>
-  $4
-</${1/(\w+).*/$1/}>
-endsnippet
 
 
 snippet input "Input with Label"
@@ -104,11 +95,6 @@ snippet h6 "XHTML <h6>"
 <h6>${1}</h6>
 endsnippet
 
-
-snippet meta "XHTML <meta>"
-<meta name="${1:name}" content="${2:content}"`!p x(snip)`>
-endsnippet
-
 snippet scriptsrc "XHTML <script src...>"
 <script src="$1" type="text/javascript" charset="${3:utf-8}"></script>
 endsnippet
@@ -118,25 +104,34 @@ snippet script "XHTML <script>"
 	$0
 </script>
 endsnippet
+# Images
+
+snippet img "Image"
+<img src="${1:/static/images/${2:something.png}}">
+endsnippet
+
+snippet img. "Image"
+<img src="${1:/static/images/${2:something.png}}" class="$3">
+endsnippet
 
 # Links
 
 snippet a "Link"
-<a href="${1:http://www.${2:url.com}}">${4:Anchor Text}</a>
+<a href="${1:{{ url($2)}}}">$3</a>
 endsnippet
 
 snippet A "Link"
-<a href="${1:http://www.${2:url.com}}">
-  ${4:Anchor Text}
+<a href="${1:{{ url($2)}}}">
+  ${3}
 </a>
 endsnippet
 
 snippet a. "Link"
-<a href="${1:http://www.${2:url.com}}" class="$3">${4:Anchor Text}</a>
+<a href="${1:{{ url($2)}}}" class="$3">${4}</a>
 endsnippet
 
 snippet A. "Link"
-<a href="${1:http://www.${2:url.com}}" class="$3">
+<a href="${1:{{ url($2)}}}" class="$3">
   ${4:Anchor Text}
 </a>
 endsnippet
